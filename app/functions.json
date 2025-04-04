@@ -1,0 +1,57 @@
+[
+    {
+        "type": "function",
+        "name": "send_sms",
+        "description": "Send up to 3 SMS messages to the user with requested information. Messages should be concise (max 300 characters each) and contain only essential details. Avoid unnecessary information to minimize cost.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "description": "A message to send to the user (max 300 characters)."
+                    },
+                    "description": "An array of messages to send. Maximum 3 messages allowed."
+                }
+            },
+            "required": [
+                "messages"
+            ],
+            "additionalProperties": false
+        }
+    },
+    {
+        "type": "function",
+        "name": "search",
+        "description": "Search the knowledge base. The knowledge base is in English, translate to and from English if needed. Results are formatted as a source name first in square brackets, followed by the text content, and a line with '-----' at the end of each result.",
+        "parameters": {
+            "type": "object",
+            "properties": { "query": { "type": "string", "description": "Search query" } },
+            "required": ["query"],
+            "additionalProperties": false
+        }
+    },
+    {
+        "type": "function",
+        "name": "end_call",
+        "description": "use this function only if user wants to end the call.",
+        "parameters": {
+            "type": "object",
+            "properties": { "reason": { "type": "string", "description": "would you like to hangup the call?" } },
+            "required": ["reason"],
+            "additionalProperties": false
+        }
+    },
+    {
+        "type": "function",
+        "name": "transfer_call",
+        "description": "Customer requested transfer the call to support or requires human help. Use this function to transfer the call.",
+        "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+            "additionalProperties": false
+        }
+    }
+]

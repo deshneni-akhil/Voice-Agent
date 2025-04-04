@@ -1,0 +1,35 @@
+[project]
+name = "voice-agent"
+version = "0.1.0"
+description = "Realtime voice agent using ACS and OpenAI"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "aiologger>=0.7.0",
+    "aiosqlite>=0.20.0",
+    "azure-communication-callautomation==1.4.0b1",
+    "azure-communication-sms>=1.1.0",
+    "azure-eventgrid>=4.21.0",
+    "azure-search-documents==11.6.0b4",
+    "azure-storage-blob>=12.24.1",
+    "beautifulsoup4>=4.12.3",
+    "fastapi[standard]>=0.115.8",
+    "jinja2>=3.1.5",
+    "loguru>=0.7.3",
+    "openai>=1.60.2",
+    "python-dotenv>=1.0.1",
+    "python-multipart>=0.0.20",
+    "recipe-scrapers>=15.4.0",
+    "redis>=5.2.1",
+    "requests>=2.32.3",
+    "rtclient",
+    "selenium>=4.28.1",
+    "sqlalchemy>=2.0.37",
+    "thefuzz>=0.22.1",
+    "uvicorn>=0.34.0",
+    "watchfiles>=1.0.4",
+    "websockets>=14.2",
+]
+
+[tool.uv.sources]
+rtclient = { url = "https://github.com/Azure-Samples/aoai-realtime-audio-sdk/releases/download/py%2Fv0.5.3/rtclient-0.5.3.tar.gz" }

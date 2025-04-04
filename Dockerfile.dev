@@ -1,0 +1,17 @@
+FROM python:3.12-slim-bookworm
+
+# Set the working directory
+WORKDIR /app
+
+# Copy dependency file and install dependencies
+COPY pyproject.toml .
+RUN pip install uv --cache && uv sync
+
+# Copy the application code
+COPY . .
+
+# Expose the application port
+EXPOSE 8000
+
+# Define the default command to run the FastAPI app using uv
+CMD ["uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0"]
