@@ -2,6 +2,12 @@
 
 ![Architecture of the project](call-server-arch.png)
 
+## Pain Point
+
+Redis cache is used to track essential user metadata, such as CallConnectionId and PhoneNumber. When the websocket connection is established, the packets sent lack this crucial information. As a workaround, a unique session ID (UUID) is generated for each customer session and is gradually updated with the corresponding metadata.
+
+This unique ID allows us to correlate customer metadata, enabling actions like sending SMS, terminating calls, and transferring users to support. Although this method is effective, it is not ideal. I have raised the issue with Azure support and filed a feature request. Any updates will be shared here.
+
 ## Prerequisites
 
 Ensure you have the following:
